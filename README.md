@@ -1,6 +1,7 @@
 # workspace-cleanup-action
 Cleans the workspace
 
+[![Tests](https://github.com/AADependencies/workspace-cleanup-action/actions/workflows/test.yml/badge.svg)](https://github.com/AADependencies/workspace-cleanup-action/actions/workflows/test.yml)
 # Usage
 
 ## Cleaning up whole workspace
