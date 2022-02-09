@@ -5,7 +5,7 @@ inputs:
   directory:
     description: Directory to change the ownership
     required: false
-    default: "${{ github.workspace }}"
+    default: "NONE"
 runs:
   using: "docker" # check out options here https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/metadata-syntax-for-github-actions
   image: 'Dockerfile'
