@@ -1,7 +1,9 @@
 #!/bin/bash
 function deleteMe() {
   DELETE_ME=$1
+  ls -latr $DELETE_ME
   rm -rf $DELETE_ME
+  ls -latr $DELETE_ME
   OUTPUT=$?
   if [[ "$?" -eq 0 ]]; then
     echo "Successfully cleared the workspace $DELETE_ME"
