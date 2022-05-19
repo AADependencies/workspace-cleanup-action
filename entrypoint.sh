@@ -21,6 +21,7 @@ else
     deleteMe "${WORKSPACE}/${INPUT_DIRECTORY}"
   else
     echo "${INPUT_DIRECTORY} is not found inside the workspace hence deleting whole workspace"
+    printenv
     deleteMe "$WORKSPACE/.*"
     deleteMe "$WORKSPACE/*"
   fi
