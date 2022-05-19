@@ -25,7 +25,7 @@ else
     deleteMe "$WORKSPACE/.*"
     deleteMe "$WORKSPACE/*"
     deleteMe "$RUNNER_TEMP/*"
-    deleteMe "$RUNNER_TEMP/.*
+    deleteMe "$RUNNER_TEMP/.*"
   fi
 fi
 
