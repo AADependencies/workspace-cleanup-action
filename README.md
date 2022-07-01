@@ -5,7 +5,7 @@ Cleans the workspace
 # Usage
 
 ## Cleaning up whole workspace
-:NOTE: It should be run at the end of the workflow only
+:NOTE: It should be run at the start of the workflow only
 ```yaml
 name: Cleaningup with Workspace
 
@@ -19,7 +19,7 @@ jobs:
     runs-on: onprem-linux
     steps:
       - name: Cleaning up workspace
-        uses: AADependencies/workspace-cleanup-action@v1
+        uses: AADependencies/workspace-cleanup-action@v2
 ```
 ## Deleting specific directory
 ```yaml
@@ -35,9 +35,7 @@ jobs:
     runs-on: onprem-linux
     steps:
       - name: Cleaning up workspace
-        uses: AADependencies/workspace-cleanup-action@v1
+        uses: AADependencies/workspace-cleanup-action@v2
         with:
           directory: "Dusty"
 ```
-
-

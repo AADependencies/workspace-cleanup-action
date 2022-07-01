@@ -1,5 +1,5 @@
 name: "workspace-cleanup-action"
-description: "Cleans the GitHub Workspace"
+description: "Cleans the GitHub Workspace, tool and temp directory"
 author: "lokeshkamalay"
 inputs:
   directory:
@@ -7,5 +7,17 @@ inputs:
     required: false
     default: "NONE"
 runs:
-  using: "docker" # check out options here https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/metadata-syntax-for-github-actions
-  image: 'Dockerfile'
+  using: 'composite'
+  steps:
+    - name: Cleaning Up Workspace
+      run: |
+        set +e
+        if [[ ${{ inputs.directory }} == "NONE" ]]; then
+          docker run -v ${{ github.workspace }}:/opt/workspace alpine rm -rf /opt/workspace/ 2> /dev/null 
+          docker run -v ${{ github.workspace }}/../../_tool:/opt/_tool alpine rm -rf /opt/_tool/ 2> /dev/null
+          docker run -v ${{ github.workspace }}/../../_temp:/opt/_temp alpine rm -rf /opt/_temp/ 2> /dev/null
+        else
+          docker run -v ${{ github.workspace }}/${{ inputs.directory }}:/opt/input_dir alpine rm -rf /opt/input_dir/ 2> /dev/null
+        fi
+        set -e
+      shell: bash
